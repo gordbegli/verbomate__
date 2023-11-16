@@ -1,0 +1,11 @@
+LICENSE.md
+README.md
+setup.py
+verbomate/__init__.py
+verbomate/main.py
+verbomate.egg-info/PKG-INFO
+verbomate.egg-info/SOURCES.txt
+verbomate.egg-info/dependency_links.txt
+verbomate.egg-info/entry_points.txt
+verbomate.egg-info/requires.txt
+verbomate.egg-info/top_level.txt

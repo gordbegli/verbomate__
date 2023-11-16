@@ -1,0 +1,10 @@
+Metadata-Version: 2.1
+Name: verbomate
+Version: 0.1.0
+Summary: A utility to fetch and execute a script from an API
+Author: Your Name
+Author-email: your.email@example.com
+License: MIT
+License-File: LICENSE.md
+Requires-Dist: requests
+Requires-Dist: openai
