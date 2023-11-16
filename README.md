@@ -1,5 +1,5 @@
 # Verbomate
-Generate and run python scripts from your command line.  
+Generate and run python from terminal.
 
 ## Examples
 
