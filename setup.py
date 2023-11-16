@@ -10,14 +10,15 @@ setup(
         ],
     },
     # Additional metadata like author, description, license, classifiers, etc.
-    author='Your Name',
-    author_email='your.email@example.com',
-    description='A utility to fetch and execute a script from an API',
+    author='Gabriel Gordbegli',
+    author_email='gabe@gordbegli.com',
+    description='Generate and run python scripts from your command line',
     license='MIT',  # Choose the appropriate license
-    #url='https://github.com/yourusername/myutility',  # Optional: Link to your project's repository
+    url='https://github.com/gordbegli/verbomate',  # Optional: Link to your project's repository
     install_requires=[
-        'requests',  # List any other dependencies your package needs here
-        'openai', # OpenAI API
+        'requests',  
+        'openai', 
+        'argparse',
     ],
 )
 

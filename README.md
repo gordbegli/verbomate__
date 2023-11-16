@@ -1,12 +1,16 @@
-# MyUtility
+# Verbomate
+Generate and run python scripts from your command line.  
 
-MyUtility is a Python command-line tool to fetch and execute scripts from an API.
+## Examples
+
+- `verbomate "create hello.txt"`
+
+- `verbomate "kill port 3000"`
+
+- `verbomate "append 01_, 02_, 03_ etc to all files in this directory"`
 
 ## Installation
 
-Run `pip install myutility` to install.
-
-## Usage
-
-To use this tool, run `mycommand` in your terminal.
+1. Install: `pip3 install verbomate`
+2. Set [OpenAI Key](https://platform.openai.com/api-keys): `verbomate -key <API_KEY>`
 

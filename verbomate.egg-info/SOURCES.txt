@@ -1,4 +1,5 @@
 LICENSE.md
+MANIFEST.in
 README.md
 setup.py
 verbomate/__init__.py
