@@ -4,7 +4,7 @@ from openai import OpenAI
 
 #yes | pip uninstall verbomate && pip install . && verbomate
 
-def generate_script():
+def generate_script(task):
 
     client = OpenAI(
     # Defaults to os.environ.get("OPENAI_API_KEY")
@@ -21,12 +21,12 @@ def generate_script():
     message = client.beta.threads.messages.create(
         thread_id=thread.id,
         role="user",
-        content="delete hello_world.txt"
+        content=task
     )
     run = client.beta.threads.runs.create(
         thread_id=thread.id,
         assistant_id=assistant.id,
-        instructions="Generate a single block of python code surrounded by triple backticks (```) to acomplish the task[delete hello_world.txt]"
+        instructions=f"Generate a single block of python code surrounded by triple backticks (```) to acomplish the task[{task}]"
     )
     while True:
         run = client.beta.threads.runs.retrieve(
@@ -74,8 +74,12 @@ def execute_script(script_text):
 
 def main():
     try:
-        script = generate_script()
-        execute_script(script)
+        if len(sys.argv) > 1:
+                    task = sys.argv[1]
+                    script = generate_script(task)
+                    execute_script(script)
+        else:
+            print("""Please provide a task as a command-line argument. e.g. verbomate "create helloworld.txt" """)
     except subprocess.CalledProcessError as e:
         print(f"Error executing script: {e}")
 

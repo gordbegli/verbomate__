@@ -1,13 +1,23 @@
 import os
+import re
 
-# Specify the file name
-file_name = "hello_world.txt"
+# Current working directory
+cwd = os.getcwd()
 
-# Check if file exists
-if os.path.isfile(file_name):
-    # Delete the file
-    os.remove(file_name)
-    print(f"The file '{file_name}' has been deleted.")
-else:
-    # The file does not exist
-    print(f"The file '{file_name}' does not exist.")
+# Regular expression to match files that start with a number
+pattern = re.compile(r"^\d")
+
+# Iterate through the files in the current working directory
+for filename in os.listdir(cwd):
+    # Check if the file name starts with a number
+    if pattern.match(filename):
+        # Construct the full file path
+        file_path = os.path.join(cwd, filename)
+        # Check if it's a file and not a directory
+        if os.path.isfile(file_path):
+            try:
+                # Delete the file
+                os.remove(file_path)
+                print(f"Deleted file: {filename}")
+            except Exception as e:
+                print(f"Failed to delete file: {filename}. Reason: {e}")
