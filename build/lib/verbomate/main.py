@@ -25,10 +25,11 @@ def generate_script(task, max_attempts=5):
             role="user",
             content=task
         )
+        ls_output = subprocess.check_output(['ls']).decode('utf-8')
         run = client.beta.threads.runs.create(
             thread_id=thread.id,
             assistant_id=assistant.id,
-            instructions=f"Generate a single block of python code surrounded by triple backticks (```) to acomplish the task[{task}]"
+            instructions=f"Generate a single block of python code surrounded by triple backticks (```) to acomplish the task[{task}]. Context: ls_output[{ls_output}]",
         )
         while True:
             run = client.beta.threads.runs.retrieve(
