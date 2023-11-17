@@ -77,8 +77,14 @@ def main():
     parser.add_argument("task", nargs="?", default="", help="Task for the script to perform")
     args = parser.parse_args()
 
+    # Define the path to the config file
+    config_path = os.path.join(os.path.expanduser("~"), ".verbomate", "config.json")
+
     if args.key:
-        with open("config.json", "w") as file:
+        # Ensure the directory for the config file exists
+        os.makedirs(os.path.dirname(config_path), exist_ok=True)
+
+        with open(config_path, "w") as file:
             json.dump({"api_key": args.key}, file)
         print("API key stored.")
         return
