@@ -13,4 +13,3 @@ Generate and run python from terminal.
 
 1. Install: `pip3 install verbomate`
 2. Set [OpenAI Key](https://platform.openai.com/api-keys): `verbomate -key <API_KEY>`
-
