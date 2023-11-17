@@ -3,10 +3,13 @@ import json
 import subprocess
 import sys
 from openai import OpenAI
+import os
 
 def generate_script(task, max_attempts=5):
+    config_path = os.path.join(os.path.expanduser("~"), ".verbomate", "config.json")
+
     for attempt in range(max_attempts):
-        with open("config.json", "r") as file:
+        with open(config_path, "r") as file:
             config = json.load(file)
 
         client = OpenAI(api_key=config["api_key"])
