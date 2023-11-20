@@ -1,2 +1,0 @@
-[console_scripts]
-verbomate = verbomate.main:main
