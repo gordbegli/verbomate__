@@ -71,9 +71,13 @@ def generate_script(task, max_attempts=5):
     raise ValueError("Script not found between ```python and ``` after {} attempts".format(max_attempts))
 
 def execute_script(script_text):
-    with open("temp_script.py", "w") as file:
+    temp_script_path = "temp_script.py"
+    with open(temp_script_path, "w") as file:
         file.write(script_text)
-    subprocess.run(["python3", "temp_script.py"], check=True)
+    try:
+        subprocess.run(["python3", temp_script_path], check=True)
+    finally:
+        os.remove(temp_script_path)  # This line will delete the temp file
 
 def main():
     parser = argparse.ArgumentParser()
